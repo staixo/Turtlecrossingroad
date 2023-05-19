@@ -9,7 +9,7 @@ player = Player()
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
-screen.bgcolor("black")
+screen.bgcolor("white")
 screen.title("Turtle Crossing")
 screen.listen()
 screen.onkey(player.up, "z")
@@ -20,6 +20,8 @@ scoreboard = Scoreboard()
 game_is_on = True
 while game_is_on:
     screen.update()
+    scoreboard.update_score()
+    
     time.sleep(0.1)
     if(random.randint(1,5) == 3):
         car_manager.create_car()
@@ -34,3 +36,5 @@ while game_is_on:
         scoreboard.increase_level()
     time.sleep(0.1)
     screen.update()
+
+screen.exitonclick()
